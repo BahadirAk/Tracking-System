@@ -131,6 +131,7 @@ namespace TrackingSystem.Forms
 				MessageBox.Show("Stock deleted!!!");
 				//FillTheList();
 			}
+			//a
 			else
 			{
 				MessageBox.Show("Please select the work you want to delete!!!");
