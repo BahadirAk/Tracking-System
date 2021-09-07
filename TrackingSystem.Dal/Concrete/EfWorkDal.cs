@@ -40,6 +40,16 @@ namespace TrackingSystem.Dal.Concrete
 			return result;
 		}
 
+		public WorkEntity GetByName(string workName)
+		{
+			return _context.Works.FirstOrDefault(x => x.Name == workName);
+		}
+
+		public List<WorkEntity> GetToDoWorksByName(string workName)
+		{
+			return _context.Works.Where(x => x.Name == workName && x.IsToDo == true).ToList();
+		}
+
 		public List<WorkEntity> GetByPerson(string personFullname)
 		{
 			return _context.Works.Where(x => x.DoneBy == personFullname).ToList();

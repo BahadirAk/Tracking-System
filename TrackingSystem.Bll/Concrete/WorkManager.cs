@@ -39,6 +39,16 @@ namespace TrackingSystem.Bll.Concrete
 			return result;
 		}
 
+		public WorkEntity GetByName(string workName)
+		{
+			return _workDal.GetByName(workName);
+		}
+
+		public List<WorkEntity> GetToDoWorksByName(string workName)
+		{
+			return _workDal.GetToDoWorksByName(workName);
+		}
+
 		public List<WorkEntity> GetByPerson(string personFullname)
 		{
 			return _workDal.GetByPerson(personFullname);

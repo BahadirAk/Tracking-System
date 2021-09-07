@@ -10,5 +10,7 @@ namespace TrackingSystem.Dal.Abstract
 	public interface IWorkDal : IBaseDal<WorkEntity>
 	{
 		List<WorkEntity> GetByPerson(string personFullname);
+		WorkEntity GetByName(string workName);
+		List<WorkEntity> GetToDoWorksByName(string workName);
 	}
 }
