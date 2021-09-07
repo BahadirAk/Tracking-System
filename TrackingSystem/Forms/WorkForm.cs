@@ -34,7 +34,7 @@ namespace TrackingSystem.Forms
 			FillWorkListByPersonComboBox();
 			FillWorKListByTeamComboBox();
 			ResetTexts();
-		}
+		}//
 
 		private void workMenuButton_Click(object sender, EventArgs e)
 		{
