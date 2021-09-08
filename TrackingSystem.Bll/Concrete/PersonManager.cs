@@ -26,6 +26,11 @@ namespace TrackingSystem.Bll.Concrete
 			return _personDal.GetPersonByUsernameAndPassword(username, password);
 		}
 
+		public PersonEntity GetById(int id)
+		{
+			return _personDal.GetById(id);
+		}
+
 		public string GetNameById(int id)
 		{
 			return _personDal.GetNameById(id);

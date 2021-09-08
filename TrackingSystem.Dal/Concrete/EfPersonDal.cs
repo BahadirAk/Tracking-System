@@ -25,6 +25,11 @@ namespace TrackingSystem.Dal.Concrete
 			return _context.People.FirstOrDefault(x => x.Username == username && x.Password == password);
 		}
 
+		public PersonEntity GetById(int id)
+		{
+			return _context.People.Find(id);
+		}
+
 		public string GetNameById(int id)
 		{
 			return _context.People.Find(id).Name + " " + _context.People.Find(id).Surname;

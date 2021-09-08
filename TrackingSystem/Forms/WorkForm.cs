@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrackingSystem.Entities;
 using TrackingSystem.Services;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TrackingSystem.Forms
 {
@@ -54,7 +55,7 @@ namespace TrackingSystem.Forms
 			workDoByComboBox.DisplayMember = "Name";
 			workDoByComboBox.AutoCompleteMode = AutoCompleteMode.Suggest;
 			workDoByComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
-			workDoByComboBox.SelectedIndex = -1; 
+			workDoByComboBox.SelectedIndex = -1;
 		}
 
 		private void workDoByComboBoxFormat(object sender, ListControlConvertEventArgs e)
@@ -86,7 +87,7 @@ namespace TrackingSystem.Forms
 			if (workToDoDataGridView.SelectedRows.Count != 0)
 			{
 				var result = _workService.GetById(Convert.ToInt32(workToDoDataGridView.CurrentRow.Cells[0].Value));
-				if(result != null)
+				if (result != null)
 				{
 					UpdateData(result);
 				}
@@ -95,7 +96,7 @@ namespace TrackingSystem.Forms
 					MessageBox.Show("An error has occurered!!!");
 				}
 			}
-			else if(workInProgressDataGridView.SelectedRows.Count != 0)
+			else if (workInProgressDataGridView.SelectedRows.Count != 0)
 			{
 				var result = _workService.GetById(Convert.ToInt32(workInProgressDataGridView.CurrentRow.Cells[0].Value));
 				if (result != null)
@@ -107,7 +108,7 @@ namespace TrackingSystem.Forms
 					MessageBox.Show("An error has occurered!!!");
 				}
 			}
-			else if(workDoneDataGridView.SelectedRows.Count != 0)
+			else if (workDoneDataGridView.SelectedRows.Count != 0)
 			{
 				var result = _workService.GetById(Convert.ToInt32(workDoneDataGridView.CurrentRow.Cells[0].Value));
 				if (result != null)
@@ -186,11 +187,11 @@ namespace TrackingSystem.Forms
 
 		private void workToDoDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-				workNameComboBox.Text = workToDoDataGridView.CurrentRow.Cells[1].Value.ToString();
-				workDoByComboBox.Text = (workToDoDataGridView.CurrentRow.Cells[4].Value != null) ? workToDoDataGridView.CurrentRow.Cells[4].Value.ToString() : "";
-				workStatusComboBox.Text = "To Do";
-				workStartedTimeDateTimePicker.Value = (workToDoDataGridView.CurrentRow.Cells[6].Value != null) ? (DateTime)workToDoDataGridView.CurrentRow.Cells[6].Value : DateTime.Now;
-				workEndedTimeDateTimePicker.Value = (workToDoDataGridView.CurrentRow.Cells[7].Value != null) ? (DateTime)workToDoDataGridView.CurrentRow.Cells[7].Value : DateTime.Now;
+			workNameComboBox.Text = workToDoDataGridView.CurrentRow.Cells[1].Value.ToString();
+			workDoByComboBox.Text = (workToDoDataGridView.CurrentRow.Cells[4].Value != null) ? workToDoDataGridView.CurrentRow.Cells[4].Value.ToString() : "";
+			workStatusComboBox.Text = "To Do";
+			workStartedTimeDateTimePicker.Value = (workToDoDataGridView.CurrentRow.Cells[6].Value != null) ? (DateTime)workToDoDataGridView.CurrentRow.Cells[6].Value : DateTime.Now;
+			workEndedTimeDateTimePicker.Value = (workToDoDataGridView.CurrentRow.Cells[7].Value != null) ? (DateTime)workToDoDataGridView.CurrentRow.Cells[7].Value : DateTime.Now;
 		}
 
 		private void workInProgressDataGridView_cellClick(object sender, DataGridViewCellEventArgs e)
@@ -204,11 +205,11 @@ namespace TrackingSystem.Forms
 
 		private void workDoneDataGridView_cellClick(object sender, DataGridViewCellEventArgs e)
 		{
-				workNameComboBox.Text = workDoneDataGridView.CurrentRow.Cells[1].Value.ToString();
-				workDoByComboBox.Text = (workDoneDataGridView.CurrentRow.Cells[4].Value != null) ? workDoneDataGridView.CurrentRow.Cells[4].Value.ToString() : "";
-				workStatusComboBox.Text = "Done";
-				workStartedTimeDateTimePicker.Value = (workDoneDataGridView.CurrentRow.Cells[6].Value != null) ? (DateTime)workDoneDataGridView.CurrentRow.Cells[6].Value : DateTime.Now;
-				workEndedTimeDateTimePicker.Value = (workDoneDataGridView.CurrentRow.Cells[7].Value != null) ? (DateTime)workDoneDataGridView.CurrentRow.Cells[7].Value : DateTime.Now;
+			workNameComboBox.Text = workDoneDataGridView.CurrentRow.Cells[1].Value.ToString();
+			workDoByComboBox.Text = (workDoneDataGridView.CurrentRow.Cells[4].Value != null) ? workDoneDataGridView.CurrentRow.Cells[4].Value.ToString() : "";
+			workStatusComboBox.Text = "Done";
+			workStartedTimeDateTimePicker.Value = (workDoneDataGridView.CurrentRow.Cells[6].Value != null) ? (DateTime)workDoneDataGridView.CurrentRow.Cells[6].Value : DateTime.Now;
+			workEndedTimeDateTimePicker.Value = (workDoneDataGridView.CurrentRow.Cells[7].Value != null) ? (DateTime)workDoneDataGridView.CurrentRow.Cells[7].Value : DateTime.Now;
 		}
 
 		private void undertakeButton_Click(object sender, EventArgs e)

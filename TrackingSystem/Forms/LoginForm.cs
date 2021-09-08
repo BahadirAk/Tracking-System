@@ -29,7 +29,8 @@ namespace TrackingSystem.Forms
 
 		private void LoginForm_Load(object sender, EventArgs e)
 		{
-
+			loginUsernameTextBox.ResetText();
+			loginPasswordTextBox.ResetText();
 		}
 
 		private void loginButton_Click(object sender, EventArgs e)
@@ -41,6 +42,22 @@ namespace TrackingSystem.Forms
 
 				_menuForm.Show();
 				this.Hide();
+			}
+		}
+
+		private void LoginUsernameTextBox_KeyUp(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+			{
+				loginButton_Click(sender, e);
+			}
+		}
+
+		private void LoginPasswordTextBox_KeyUp(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+			{
+				loginButton_Click(sender, e);
 			}
 		}
 	}

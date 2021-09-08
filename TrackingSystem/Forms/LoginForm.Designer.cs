@@ -40,47 +40,44 @@ namespace TrackingSystem.Forms
 			// 
 			// loginUsernameTextBox
 			// 
-			this.loginUsernameTextBox.Location = new System.Drawing.Point(356, 185);
-			this.loginUsernameTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.loginUsernameTextBox.Location = new System.Drawing.Point(237, 120);
 			this.loginUsernameTextBox.Name = "loginUsernameTextBox";
-			this.loginUsernameTextBox.Size = new System.Drawing.Size(476, 26);
+			this.loginUsernameTextBox.Size = new System.Drawing.Size(319, 20);
 			this.loginUsernameTextBox.TabIndex = 0;
+			this.loginUsernameTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.LoginUsernameTextBox_KeyUp);
 			// 
 			// loginPasswordTextBox
 			// 
-			this.loginPasswordTextBox.Location = new System.Drawing.Point(356, 246);
-			this.loginPasswordTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.loginPasswordTextBox.Location = new System.Drawing.Point(237, 160);
 			this.loginPasswordTextBox.Name = "loginPasswordTextBox";
-			this.loginPasswordTextBox.Size = new System.Drawing.Size(476, 26);
+			this.loginPasswordTextBox.Size = new System.Drawing.Size(319, 20);
 			this.loginPasswordTextBox.TabIndex = 1;
 			this.loginPasswordTextBox.UseSystemPasswordChar = true;
+			this.loginPasswordTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.LoginPasswordTextBox_KeyUp);
 			// 
 			// loginUsernameLabel
 			// 
 			this.loginUsernameLabel.AutoSize = true;
-			this.loginUsernameLabel.Location = new System.Drawing.Point(230, 195);
-			this.loginUsernameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.loginUsernameLabel.Location = new System.Drawing.Point(153, 127);
 			this.loginUsernameLabel.Name = "loginUsernameLabel";
-			this.loginUsernameLabel.Size = new System.Drawing.Size(91, 20);
+			this.loginUsernameLabel.Size = new System.Drawing.Size(61, 13);
 			this.loginUsernameLabel.TabIndex = 2;
 			this.loginUsernameLabel.Text = "Username :";
 			// 
 			// loginPasswordLabel
 			// 
 			this.loginPasswordLabel.AutoSize = true;
-			this.loginPasswordLabel.Location = new System.Drawing.Point(230, 257);
-			this.loginPasswordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.loginPasswordLabel.Location = new System.Drawing.Point(153, 167);
 			this.loginPasswordLabel.Name = "loginPasswordLabel";
-			this.loginPasswordLabel.Size = new System.Drawing.Size(86, 20);
+			this.loginPasswordLabel.Size = new System.Drawing.Size(59, 13);
 			this.loginPasswordLabel.TabIndex = 3;
 			this.loginPasswordLabel.Text = "Password :";
 			// 
 			// loginButton
 			// 
-			this.loginButton.Location = new System.Drawing.Point(680, 322);
-			this.loginButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.loginButton.Location = new System.Drawing.Point(453, 209);
 			this.loginButton.Name = "loginButton";
-			this.loginButton.Size = new System.Drawing.Size(154, 35);
+			this.loginButton.Size = new System.Drawing.Size(103, 23);
 			this.loginButton.TabIndex = 4;
 			this.loginButton.Text = "Login";
 			this.loginButton.UseVisualStyleBackColor = true;
@@ -89,25 +86,25 @@ namespace TrackingSystem.Forms
 			// fordOtosanLogoPictureBox
 			// 
 			this.fordOtosanLogoPictureBox.Image = global::TrackingSystem.Properties.Resources.Ford_Otosan_logo_svg;
-			this.fordOtosanLogoPictureBox.Location = new System.Drawing.Point(356, 77);
+			this.fordOtosanLogoPictureBox.Location = new System.Drawing.Point(237, 50);
+			this.fordOtosanLogoPictureBox.Margin = new System.Windows.Forms.Padding(2);
 			this.fordOtosanLogoPictureBox.Name = "fordOtosanLogoPictureBox";
-			this.fordOtosanLogoPictureBox.Size = new System.Drawing.Size(478, 89);
+			this.fordOtosanLogoPictureBox.Size = new System.Drawing.Size(319, 58);
 			this.fordOtosanLogoPictureBox.TabIndex = 6;
 			this.fordOtosanLogoPictureBox.TabStop = false;
 			// 
 			// LoginForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
-			this.ClientSize = new System.Drawing.Size(1200, 692);
+			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.fordOtosanLogoPictureBox);
 			this.Controls.Add(this.loginButton);
 			this.Controls.Add(this.loginPasswordLabel);
 			this.Controls.Add(this.loginUsernameLabel);
 			this.Controls.Add(this.loginPasswordTextBox);
 			this.Controls.Add(this.loginUsernameTextBox);
-			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "LoginForm";
 			this.Text = "Login";
 			this.Load += new System.EventHandler(this.LoginForm_Load);

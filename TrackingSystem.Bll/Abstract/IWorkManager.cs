@@ -10,7 +10,5 @@ namespace TrackingSystem.Bll.Abstract
 	public interface IWorkManager : IBaseManager<WorkEntity>
 	{
 		List<WorkEntity> GetByPerson(string personFullname);
-		WorkEntity GetByName(string workName);
-		List<WorkEntity> GetToDoWorksByName(string workName);
 	}
 }

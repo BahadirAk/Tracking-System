@@ -27,6 +27,11 @@ namespace TrackingSystem.Services
 			return _personManager.GetPersonByUsernameAndPassword(username, password);
 		}
 
+		public PersonEntity GetById(int id)
+		{
+			return _personManager.GetById(id);
+		}
+
 		public string GetNameById(int id)
 		{
 			return _personManager.GetNameById(id);

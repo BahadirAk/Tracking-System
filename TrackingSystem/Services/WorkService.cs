@@ -64,19 +64,9 @@ namespace TrackingSystem.Services
 			return _workListManager.GetNameById(id);
 		}
 
-		public WorkEntity GetByName(string workName)
-		{
-			return _workManager.GetByName(workName);
-		}
-
 		public WorkEntity GetById(int id)
 		{
 			return _workManager.GetById(id);
-		}
-
-		public List<WorkEntity> GetToDoWorksByName(string workName)
-		{
-			return _workManager.GetToDoWorksByName(workName);
 		}
 
 		public List<WorkEntity> ListByPerson(string personFullname)
