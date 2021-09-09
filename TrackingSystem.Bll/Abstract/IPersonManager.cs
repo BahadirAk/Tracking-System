@@ -14,5 +14,6 @@ namespace TrackingSystem.Bll.Abstract
 		PersonEntity GetById(int id);
 		string GetNameById(int id);
 		List<PersonEntity> GetByTeam(string team);
+		List<PersonEntity> GetByTeamId(int id);
 	}
 }

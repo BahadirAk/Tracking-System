@@ -291,7 +291,8 @@ namespace TrackingSystem.Forms
 			}
 			else
 			{
-				var people = _personService.GetByTeam(workListByTeamComboBox.Text);
+				var team = workListByTeamComboBox.SelectedItem as TeamListEntity;
+				List<PersonEntity> people = _personService.GetByTeamId(team.Id);
 				List<WorkEntity> toDOWorks = new List<WorkEntity>();
 				List<WorkEntity> inProgressWorks = new List<WorkEntity>();
 				List<WorkEntity> doneWorks = new List<WorkEntity>();

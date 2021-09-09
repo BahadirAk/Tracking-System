@@ -39,5 +39,9 @@ namespace TrackingSystem.Bll.Concrete
 		{
 			return _personDal.GetByTeam(team);
 		}
+		public List<PersonEntity> GetByTeamId(int id)
+		{
+			return _personDal.GetByTeamId(id);
+		}
 	}
 }

@@ -41,5 +41,10 @@ namespace TrackingSystem.Services
 		{
 			return _personManager.GetByTeam(team);
 		}
+
+		public List<PersonEntity> GetByTeamId(int id)
+		{
+			return _personManager.GetByTeamId(id);
+		}
 	}
 }

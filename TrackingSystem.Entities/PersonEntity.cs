@@ -24,5 +24,7 @@ namespace TrackingSystem.Entities
 		public string Team { get; set; }
 
 		public List<WorkEntity> Works { get; set; }
+		public int TeamListEntityId { get; set; }
+		public virtual TeamListEntity TeamListEntity { get; set; }
 	}
 }

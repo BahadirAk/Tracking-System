@@ -15,5 +15,7 @@ namespace TrackingSystem.Entities
 		public int Id { get; set; }
 		[Required]
 		public string Name { get; set; }
+
+		public virtual ICollection<PersonEntity> People { get; set; }
 	}
 }

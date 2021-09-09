@@ -29,19 +29,21 @@ namespace TrackingSystem.Forms
 
 		private void LoginForm_Load(object sender, EventArgs e)
 		{
-			loginUsernameTextBox.ResetText();
-			loginPasswordTextBox.ResetText();
+			FillThePeopleComboBox();
 		}
 
 		private void loginButton_Click(object sender, EventArgs e)
 		{
-			if (_loginService.Login(loginUsernameTextBox.Text, loginPasswordTextBox.Text) == true)
+			if(loginPeopleComboBox.SelectedIndex != -1)
 			{
-				var result = _personService.GetPersonByUsernameAndPassword(loginUsernameTextBox.Text, loginPasswordTextBox.Text);
-				MyCalimTypes.currentUser = result;
-
+				var result = loginPeopleComboBox.SelectedItem as PersonEntity;
+				MyCalimTypes.currentUser = _personService.GetById(result.Id);
 				_menuForm.Show();
 				this.Hide();
+			}
+			else
+			{
+				MessageBox.Show("Please select the user!!!");
 			}
 		}
 
@@ -59,6 +61,23 @@ namespace TrackingSystem.Forms
 			{
 				loginButton_Click(sender, e);
 			}
+		}
+
+		void FillThePeopleComboBox()
+		{
+			loginPeopleComboBox.DataSource = _personService.GetPeople();
+			loginPeopleComboBox.ValueMember = "id";
+			loginPeopleComboBox.DisplayMember = "Name";
+			loginPeopleComboBox.AutoCompleteMode = AutoCompleteMode.Suggest;
+			loginPeopleComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
+			loginPeopleComboBox.SelectedIndex = -1;
+		}
+
+		private void LoginPeopleComboBoxFormat(object sender, ListControlConvertEventArgs e)
+		{
+			string name = ((PersonEntity)e.ListItem).Name;
+			string surname = ((PersonEntity)e.ListItem).Surname;
+			e.Value = name + " " + surname;
 		}
 	}
 }

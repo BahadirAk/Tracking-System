@@ -15,8 +15,10 @@ namespace TrackingSystem.Forms
 	public partial class StockForm : Form
 	{
 		private StockService _stockService;
-		public StockForm(StockService stockService)
+		private AutoCompleteStringCollection _collection;
+		public StockForm(StockService stockService, AutoCompleteStringCollection collection)
 		{
+			_collection = collection;
 			_stockService = stockService;
 			InitializeComponent();
 		}
@@ -24,6 +26,7 @@ namespace TrackingSystem.Forms
 		private void StockForm_Load(object sender, EventArgs e)
 		{
 			FillTheList();
+			FillTheStockSearchTextBox_AutoCompleteMode();
 		}
 
 		private void menuStockButton_Click(object sender, EventArgs e)
@@ -113,18 +116,8 @@ namespace TrackingSystem.Forms
 
 		private void stockNameSearchTextBox_TextChanged(object sender, EventArgs e)
 		{
-			AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
-			foreach(var item in _stockService.GetStocks())
-			{
-				collection.Add(item.Name).ToString();
-				collection.Add(item.Model).ToString();
-				collection.Add(item.SerialNo).ToString();
-			}
 			if(stockSearchTextBox.Text != String.Empty)
 			{
-				stockSearchTextBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-				stockSearchTextBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
-				stockSearchTextBox.AutoCompleteCustomSource = collection;
 				stockDataGridView.DataSource = _stockService.Search(stockSearchTextBox.Text);
 			}
 			else
@@ -147,6 +140,19 @@ namespace TrackingSystem.Forms
 			stockModelTextBox.ResetText();
 			stockSerialNoTextbox.ResetText();
 			stockQuantityTextBox.ResetText();
+		}
+
+		void FillTheStockSearchTextBox_AutoCompleteMode()
+		{
+			foreach (var item in _stockService.GetStocks())
+			{
+				_collection.Add(item.Name).ToString();
+				_collection.Add(item.Model).ToString();
+				_collection.Add(item.SerialNo).ToString();
+			}
+			stockSearchTextBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+			stockSearchTextBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+			stockSearchTextBox.AutoCompleteCustomSource = _collection;
 		}
 	}
 }

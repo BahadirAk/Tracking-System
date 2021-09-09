@@ -38,5 +38,9 @@ namespace TrackingSystem.Dal.Concrete
 		{
 			return _context.People.Where(x => x.Team == team).ToList();
 		}
+		public List<PersonEntity> GetByTeamId(int id)
+		{
+			return _context.People.Where(x => x.TeamListEntityId == id).ToList();
+		}
 	}
 }

@@ -63,6 +63,7 @@ namespace TrackingSystem
 				services.AddTransient<IWorkListDal, EfWorkListDal>();
 				services.AddTransient<ITeamListDal, EfTeamListDal>();
 				services.AddTransient<TrackingSystemContext>();
+				services.AddTransient<AutoCompleteStringCollection>();
 			});
 		}
 	}
