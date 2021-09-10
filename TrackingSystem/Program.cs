@@ -47,7 +47,6 @@ namespace TrackingSystem
 				services.AddTransient<MenuForm>();
 				services.AddTransient<StockForm>();
 				services.AddTransient<WorkForm>();
-				services.AddTransient<LoginService>();
 				services.AddTransient<StockService>();
 				services.AddTransient<MenuService>();
 				services.AddTransient<WorkService>();

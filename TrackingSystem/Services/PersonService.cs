@@ -22,11 +22,6 @@ namespace TrackingSystem.Services
 			return result;
 		}
 
-		public PersonEntity GetPersonByUsernameAndPassword(string username, string password)
-		{
-			return _personManager.GetPersonByUsernameAndPassword(username, password);
-		}
-
 		public PersonEntity GetById(int id)
 		{
 			return _personManager.GetById(id);
@@ -35,11 +30,6 @@ namespace TrackingSystem.Services
 		public string GetNameById(int id)
 		{
 			return _personManager.GetNameById(id);
-		}
-
-		public List<PersonEntity> GetByTeam(string team)
-		{
-			return _personManager.GetByTeam(team);
 		}
 
 		public List<PersonEntity> GetByTeamId(int id)

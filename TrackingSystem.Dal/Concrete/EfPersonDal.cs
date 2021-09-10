@@ -20,10 +20,6 @@ namespace TrackingSystem.Dal.Concrete
 			var result = _context.People.ToList();
 			return result;
 		}
-		public PersonEntity GetPersonByUsernameAndPassword(string username, string password)
-		{
-			return _context.People.FirstOrDefault(x => x.Username == username && x.Password == password);
-		}
 
 		public PersonEntity GetById(int id)
 		{
@@ -33,10 +29,6 @@ namespace TrackingSystem.Dal.Concrete
 		public string GetNameById(int id)
 		{
 			return _context.People.Find(id).Name + " " + _context.People.Find(id).Surname;
-		}
-		public List<PersonEntity> GetByTeam(string team)
-		{
-			return _context.People.Where(x => x.Team == team).ToList();
 		}
 		public List<PersonEntity> GetByTeamId(int id)
 		{

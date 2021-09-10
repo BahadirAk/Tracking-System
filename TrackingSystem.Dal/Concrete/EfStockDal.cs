@@ -52,7 +52,14 @@ namespace TrackingSystem.Dal.Concrete
 			return result;
 		}
 
-		public void Order(int id, int quantity)
+		public void IncreaseQuantity(int id, int quantity)
+		{
+			var result = _context.Stocks.Find(id);
+			result.Quantity = result.Quantity + quantity;
+			_context.SaveChanges();
+		}
+
+		public void DecreaseQuantity(int id, int quantity)
 		{
 			var result = _context.Stocks.Find(id);
 			result.Quantity = result.Quantity - quantity;

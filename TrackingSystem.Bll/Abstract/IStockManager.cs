@@ -9,7 +9,8 @@ namespace TrackingSystem.Bll.Abstract
 {
 	public interface IStockManager : IBaseManager<StockEntity>
 	{
-		void Order(int id, int quantity);
+		void IncreaseQuantity(int id, int quantity);
+		void DecreaseQuantity(int id, int quantity);
 		StockEntity GetBySerialNo(string SerialNo);
 		List<StockEntity> GetByFilter(string text);
 	}

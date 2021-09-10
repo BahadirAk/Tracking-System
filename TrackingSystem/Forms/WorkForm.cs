@@ -84,7 +84,7 @@ namespace TrackingSystem.Forms
 
 		private void workSaveButton_Click(object sender, EventArgs e)
 		{
-			if (workToDoDataGridView.SelectedRows.Count != 0)
+			if (workToDoDataGridView.SelectedCells.Count != 0)
 			{
 				var result = _workService.GetById(Convert.ToInt32(workToDoDataGridView.CurrentRow.Cells[0].Value));
 				if (result != null)
@@ -96,7 +96,7 @@ namespace TrackingSystem.Forms
 					MessageBox.Show("An error has occurered!!!");
 				}
 			}
-			else if (workInProgressDataGridView.SelectedRows.Count != 0)
+			else if (workInProgressDataGridView.SelectedCells.Count != 0)
 			{
 				var result = _workService.GetById(Convert.ToInt32(workInProgressDataGridView.CurrentRow.Cells[0].Value));
 				if (result != null)
@@ -108,7 +108,7 @@ namespace TrackingSystem.Forms
 					MessageBox.Show("An error has occurered!!!");
 				}
 			}
-			else if (workDoneDataGridView.SelectedRows.Count != 0)
+			else if (workDoneDataGridView.SelectedCells.Count != 0)
 			{
 				var result = _workService.GetById(Convert.ToInt32(workDoneDataGridView.CurrentRow.Cells[0].Value));
 				if (result != null)
@@ -128,7 +128,7 @@ namespace TrackingSystem.Forms
 
 		private void deleteButton_Click(object sender, EventArgs e)
 		{
-			if (workToDoDataGridView.SelectedRows.Count != 0)
+			if (workToDoDataGridView.SelectedCells.Count != 0)
 			{
 				_workService.Delete(Convert.ToInt32(workToDoDataGridView.CurrentRow.Cells[0].Value));
 				MessageBox.Show("Work deleted!!!");
@@ -137,7 +137,7 @@ namespace TrackingSystem.Forms
 				FillTheDoneList();
 				ResetTexts();
 			}
-			else if (workInProgressDataGridView.SelectedRows.Count != 0)
+			else if (workInProgressDataGridView.SelectedCells.Count != 0)
 			{
 				_workService.Delete(Convert.ToInt32(workInProgressDataGridView.CurrentRow.Cells[0].Value));
 				MessageBox.Show("Work deleted!!!");
@@ -146,7 +146,7 @@ namespace TrackingSystem.Forms
 				FillTheDoneList();
 				ResetTexts();
 			}
-			else if (workDoneDataGridView.SelectedRows.Count != 0)
+			else if (workDoneDataGridView.SelectedCells.Count != 0)
 			{
 				_workService.Delete(Convert.ToInt32(workDoneDataGridView.CurrentRow.Cells[0].Value));
 				MessageBox.Show("Work deleted!!!");
@@ -214,19 +214,19 @@ namespace TrackingSystem.Forms
 
 		private void undertakeButton_Click(object sender, EventArgs e)
 		{
-			if (workToDoDataGridView.SelectedRows.Count != 0)
+			if (workToDoDataGridView.SelectedCells.Count != 0)
 			{
 				var result = _workService.GetById(Convert.ToInt32(workToDoDataGridView.CurrentRow.Cells[0].Value));
 				result.DoneBy = MyCalimTypes.currentUser.Name + " " + MyCalimTypes.currentUser.Surname;
 				UndertakeData(result);
 			}
-			else if (workInProgressDataGridView.SelectedRows.Count != 0)
+			else if (workInProgressDataGridView.SelectedCells.Count != 0)
 			{
 				var result = _workService.GetById(Convert.ToInt32(workInProgressDataGridView.CurrentRow.Cells[0].Value));
 				result.DoneBy = MyCalimTypes.currentUser.Name + " " + MyCalimTypes.currentUser.Surname;
 				UndertakeData(result);
 			}
-			else if (workDoneDataGridView.SelectedRows.Count != 0)
+			else if (workDoneDataGridView.SelectedCells.Count != 0)
 			{
 				var result = _workService.GetById(Convert.ToInt32(workDoneDataGridView.CurrentRow.Cells[0].Value));
 				result.DoneBy = MyCalimTypes.currentUser.Name + " " + MyCalimTypes.currentUser.Surname;

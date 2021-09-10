@@ -21,10 +21,6 @@ namespace TrackingSystem.Bll.Concrete
 			var result = _personDal.GetAll();
 			return result;
 		}
-		public PersonEntity GetPersonByUsernameAndPassword(string username, string password)
-		{
-			return _personDal.GetPersonByUsernameAndPassword(username, password);
-		}
 
 		public PersonEntity GetById(int id)
 		{
@@ -34,10 +30,6 @@ namespace TrackingSystem.Bll.Concrete
 		public string GetNameById(int id)
 		{
 			return _personDal.GetNameById(id);
-		}
-		public List<PersonEntity> GetByTeam(string team)
-		{
-			return _personDal.GetByTeam(team);
 		}
 		public List<PersonEntity> GetByTeamId(int id)
 		{

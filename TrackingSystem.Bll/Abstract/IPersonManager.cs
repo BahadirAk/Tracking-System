@@ -10,10 +10,8 @@ namespace TrackingSystem.Bll.Abstract
 	public interface IPersonManager
 	{
 		List<PersonEntity> GetAll();
-		PersonEntity GetPersonByUsernameAndPassword(string username, string password);
 		PersonEntity GetById(int id);
 		string GetNameById(int id);
-		List<PersonEntity> GetByTeam(string team);
 		List<PersonEntity> GetByTeamId(int id);
 	}
 }

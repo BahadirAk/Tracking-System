@@ -79,7 +79,7 @@ namespace TrackingSystem.Forms
 
 		private void deleteButton_Click(object sender, EventArgs e)
 		{
-			if(stockDataGridView.SelectedRows.Count != 0)
+			if(stockDataGridView.SelectedCells.Count != 0)
 			{
 				_stockService.Delete(Convert.ToInt32(stockDataGridView.CurrentRow.Cells[0].Value));
 				MessageBox.Show("Stock deleted!!!");
@@ -98,20 +98,6 @@ namespace TrackingSystem.Forms
 			stockDataGridView.CurrentCell.Selected = false;
 			stockDataGridView.CurrentRow.Selected = false;
 			stockDataGridView.Rows[0].Cells[0].Selected = false;
-		}
-
-		private void orderButton_Click(object sender, EventArgs e)
-		{
-			if(stockOrderTextBox.Text != string.Empty)
-			{
-				_stockService.Order(Convert.ToInt32(stockDataGridView.CurrentRow.Cells[0].Value), Convert.ToInt32(stockOrderTextBox.Text));
-				FillTheList();
-				ResetTextBoxes();
-			}
-			else
-			{
-				MessageBox.Show("Please enter the quantity you want order!!!");
-			}
 		}
 
 		private void stockNameSearchTextBox_TextChanged(object sender, EventArgs e)
@@ -140,6 +126,7 @@ namespace TrackingSystem.Forms
 			stockModelTextBox.ResetText();
 			stockSerialNoTextbox.ResetText();
 			stockQuantityTextBox.ResetText();
+			stockChangeQuantityTextBox.ResetText();
 		}
 
 		void FillTheStockSearchTextBox_AutoCompleteMode()
@@ -153,6 +140,36 @@ namespace TrackingSystem.Forms
 			stockSearchTextBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
 			stockSearchTextBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
 			stockSearchTextBox.AutoCompleteCustomSource = _collection;
+		}
+
+		private void stockIncreaseButton_Click_1(object sender, EventArgs e)
+		{
+			if (stockChangeQuantityTextBox.Text != string.Empty)
+			{
+				_stockService.IncreaseQuantity(Convert.ToInt32(stockDataGridView.CurrentRow.Cells[0].Value), Convert.ToInt32(stockChangeQuantityTextBox.Text));
+				MessageBox.Show("The stock quantity is increased!!!");
+				FillTheList();
+				ResetTextBoxes();
+			}
+			else
+			{
+				MessageBox.Show("Please enter the quantity you want increase!!!");
+			}
+		}
+
+		private void stockDecreaseButton_Click(object sender, EventArgs e)
+		{
+			if (stockChangeQuantityTextBox.Text != string.Empty)
+			{
+				_stockService.DecreaseQuantity(Convert.ToInt32(stockDataGridView.CurrentRow.Cells[0].Value), Convert.ToInt32(stockChangeQuantityTextBox.Text));
+				MessageBox.Show("The stock quantity is decreased!!!");
+				FillTheList();
+				ResetTextBoxes();
+			}
+			else
+			{
+				MessageBox.Show("Please enter the quantity you want decrease!!!");
+			}
 		}
 	}
 }

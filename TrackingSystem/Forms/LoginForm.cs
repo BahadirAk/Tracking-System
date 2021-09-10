@@ -15,13 +15,11 @@ namespace TrackingSystem.Forms
 {
 	public partial class LoginForm : Form
 	{
-		private LoginService _loginService;
 		private PersonService _personService;
 		private MenuForm _menuForm;
-		public LoginForm(LoginService loginService, MenuForm menuForm, PersonService personService)
+		public LoginForm(MenuForm menuForm, PersonService personService)
 		{
 			_menuForm = menuForm;
-			_loginService = loginService;
 			_personService = personService;
 			InitializeComponent();
 			fordOtosanLogoPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;

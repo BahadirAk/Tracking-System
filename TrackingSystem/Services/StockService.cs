@@ -50,9 +50,14 @@ namespace TrackingSystem.Services
 			_stockManager.Delete(id);
 		}
 
-		public void Order(int id, int quantity)
+		public void IncreaseQuantity(int id, int quantity)
 		{
-			_stockManager.Order(id, quantity);
+			_stockManager.IncreaseQuantity(id, quantity);
+		}
+
+		public void DecreaseQuantity(int id, int quantity)
+		{
+			_stockManager.DecreaseQuantity(id, quantity);
 		}
 
 		public List<StockEntity> Search(string text)

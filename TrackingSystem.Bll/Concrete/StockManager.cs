@@ -51,9 +51,14 @@ namespace TrackingSystem.Bll.Concrete
 			return result;
 		}
 
-		public void Order(int id, int quantity)
+		public void IncreaseQuantity(int id, int quantity)
 		{
-			_stockDal.Order(id, quantity);
+			_stockDal.IncreaseQuantity(id, quantity);
+		}
+
+		public void DecreaseQuantity(int id, int quantity)
+		{
+			_stockDal.DecreaseQuantity(id, quantity);
 		}
 
 		public void Update(StockEntity entity)

@@ -9,7 +9,8 @@ namespace TrackingSystem.Dal.Abstract
 {
 	public interface IStockDal : IBaseDal<StockEntity>
 	{
-		void Order(int id, int quantity);
+		void IncreaseQuantity(int id, int quantity);
+		void DecreaseQuantity(int id, int quantity);
 		StockEntity GetBySerialNo(string serialNo);
 		List<StockEntity> GetByFilter(string text);
 	}

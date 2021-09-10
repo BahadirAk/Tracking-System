@@ -40,11 +40,12 @@ namespace TrackingSystem.Forms
 			this.stockQuantityLabel = new System.Windows.Forms.Label();
 			this.saveButton = new System.Windows.Forms.Button();
 			this.deleteButton = new System.Windows.Forms.Button();
-			this.stockOrderButton = new System.Windows.Forms.Button();
 			this.stockOp = new System.Windows.Forms.GroupBox();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.stockOrderLabel = new System.Windows.Forms.Label();
-			this.stockOrderTextBox = new System.Windows.Forms.TextBox();
+			this.stockDecreaseButton = new System.Windows.Forms.Button();
+			this.stockChangeQuantityLabel = new System.Windows.Forms.Label();
+			this.stockChangeQuantityTextBox = new System.Windows.Forms.TextBox();
+			this.stockIncreaseButton = new System.Windows.Forms.Button();
 			this.stockSearchTextBox = new System.Windows.Forms.TextBox();
 			this.searchOpeartionsGroupBox = new System.Windows.Forms.GroupBox();
 			this.exitStockButton = new System.Windows.Forms.Button();
@@ -162,16 +163,6 @@ namespace TrackingSystem.Forms
 			this.deleteButton.UseVisualStyleBackColor = true;
 			this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
 			// 
-			// stockOrderButton
-			// 
-			this.stockOrderButton.Location = new System.Drawing.Point(97, 73);
-			this.stockOrderButton.Name = "stockOrderButton";
-			this.stockOrderButton.Size = new System.Drawing.Size(104, 29);
-			this.stockOrderButton.TabIndex = 14;
-			this.stockOrderButton.Text = "Order";
-			this.stockOrderButton.UseVisualStyleBackColor = true;
-			this.stockOrderButton.Click += new System.EventHandler(this.orderButton_Click);
-			// 
 			// stockOp
 			// 
 			this.stockOp.Controls.Add(this.groupBox1);
@@ -194,9 +185,10 @@ namespace TrackingSystem.Forms
 			// 
 			// groupBox1
 			// 
-			this.groupBox1.Controls.Add(this.stockOrderLabel);
-			this.groupBox1.Controls.Add(this.stockOrderTextBox);
-			this.groupBox1.Controls.Add(this.stockOrderButton);
+			this.groupBox1.Controls.Add(this.stockDecreaseButton);
+			this.groupBox1.Controls.Add(this.stockChangeQuantityLabel);
+			this.groupBox1.Controls.Add(this.stockChangeQuantityTextBox);
+			this.groupBox1.Controls.Add(this.stockIncreaseButton);
 			this.groupBox1.Location = new System.Drawing.Point(77, 281);
 			this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.groupBox1.Name = "groupBox1";
@@ -204,25 +196,44 @@ namespace TrackingSystem.Forms
 			this.groupBox1.Size = new System.Drawing.Size(310, 126);
 			this.groupBox1.TabIndex = 17;
 			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Order Operation";
 			// 
-			// stockOrderLabel
+			// stockDecreaseButton
 			// 
-			this.stockOrderLabel.AutoSize = true;
-			this.stockOrderLabel.Location = new System.Drawing.Point(47, 18);
-			this.stockOrderLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.stockOrderLabel.Name = "stockOrderLabel";
-			this.stockOrderLabel.Size = new System.Drawing.Size(197, 13);
-			this.stockOrderLabel.TabIndex = 16;
-			this.stockOrderLabel.Text = "Please enter the quantity you want order";
+			this.stockDecreaseButton.Location = new System.Drawing.Point(166, 81);
+			this.stockDecreaseButton.Name = "stockDecreaseButton";
+			this.stockDecreaseButton.Size = new System.Drawing.Size(104, 29);
+			this.stockDecreaseButton.TabIndex = 17;
+			this.stockDecreaseButton.Text = "Decrease";
+			this.stockDecreaseButton.UseVisualStyleBackColor = true;
+			this.stockDecreaseButton.Click += new System.EventHandler(this.stockDecreaseButton_Click);
 			// 
-			// stockOrderTextBox
+			// stockChangeQuantityLabel
 			// 
-			this.stockOrderTextBox.Location = new System.Drawing.Point(29, 41);
-			this.stockOrderTextBox.Margin = new System.Windows.Forms.Padding(2);
-			this.stockOrderTextBox.Name = "stockOrderTextBox";
-			this.stockOrderTextBox.Size = new System.Drawing.Size(241, 20);
-			this.stockOrderTextBox.TabIndex = 15;
+			this.stockChangeQuantityLabel.AutoSize = true;
+			this.stockChangeQuantityLabel.Location = new System.Drawing.Point(23, 15);
+			this.stockChangeQuantityLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.stockChangeQuantityLabel.Name = "stockChangeQuantityLabel";
+			this.stockChangeQuantityLabel.Size = new System.Drawing.Size(246, 13);
+			this.stockChangeQuantityLabel.TabIndex = 16;
+			this.stockChangeQuantityLabel.Text = "Please enter the quantity of the stock you selected";
+			// 
+			// stockChangeQuantityTextBox
+			// 
+			this.stockChangeQuantityTextBox.Location = new System.Drawing.Point(29, 41);
+			this.stockChangeQuantityTextBox.Margin = new System.Windows.Forms.Padding(2);
+			this.stockChangeQuantityTextBox.Name = "stockChangeQuantityTextBox";
+			this.stockChangeQuantityTextBox.Size = new System.Drawing.Size(241, 20);
+			this.stockChangeQuantityTextBox.TabIndex = 15;
+			// 
+			// stockIncreaseButton
+			// 
+			this.stockIncreaseButton.Location = new System.Drawing.Point(29, 81);
+			this.stockIncreaseButton.Name = "stockIncreaseButton";
+			this.stockIncreaseButton.Size = new System.Drawing.Size(104, 29);
+			this.stockIncreaseButton.TabIndex = 14;
+			this.stockIncreaseButton.Text = "Increase";
+			this.stockIncreaseButton.UseVisualStyleBackColor = true;
+			this.stockIncreaseButton.Click += new System.EventHandler(this.stockIncreaseButton_Click_1);
 			// 
 			// stockSearchTextBox
 			// 
@@ -300,14 +311,15 @@ namespace TrackingSystem.Forms
 		private System.Windows.Forms.Label stockQuantityLabel;
 		private System.Windows.Forms.Button saveButton;
 		private System.Windows.Forms.Button deleteButton;
-		private System.Windows.Forms.Button stockOrderButton;
 		private System.Windows.Forms.GroupBox stockOp;
 		private System.Windows.Forms.TextBox stockSearchTextBox;
 		private System.Windows.Forms.GroupBox searchOpeartionsGroupBox;
 		private System.Windows.Forms.Button exitStockButton;
 		private System.Windows.Forms.Button menuStockButton;
-		private System.Windows.Forms.Label stockOrderLabel;
-		private System.Windows.Forms.TextBox stockOrderTextBox;
 		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.Button stockDecreaseButton;
+		private System.Windows.Forms.Label stockChangeQuantityLabel;
+		private System.Windows.Forms.TextBox stockChangeQuantityTextBox;
+		private System.Windows.Forms.Button stockIncreaseButton;
 	}
 }
